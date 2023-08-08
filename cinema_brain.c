@@ -18,11 +18,11 @@ void view_reservedTicket(int movie_index)
 
         if (cinema[movie_index][i].isReserved)
         {
-            printf(RED "%3d " RESET, i + 1);
+            printf(RED "|%3d| " RESET, i + 1);
         }
         else
         {
-            printf(GRN "%3d " RESET, i + 1);
+            printf(GRN "|%3d| " RESET, i + 1);
         }
         if ((i + 1) % 10 == 0)
         {
