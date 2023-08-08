@@ -4,7 +4,6 @@
 #include "cinema_brain.h"
 #include "cinema_manager.h"
 
-
 static STATE current_state = INITIAL;
 
 void start_app()
@@ -51,7 +50,7 @@ void start_app()
 void select_user()
 {
     int selected_value;
-    char pass [] = {0};
+    char pass[] = {0};
     PRINT_MAIN_MENU;
     printf(BLU "TO MANAGE SYSTEM AS USER PRESS 1 AS ADMIN PRESS 2: " RESET);
 
@@ -60,31 +59,28 @@ void select_user()
     if (selected_value == 1)
     {
         get_pass(pass);
-        if (1 == verify_user_pass (pass))
+        if (1 == verify_user_pass(pass))
         {
-        set_credential(USER);
-        current_state = USER_SELECTION;
+            set_credential(USER);
+            current_state = USER_SELECTION;
         }
-        else 
+        else
         {
-            printf(RED "WRONG PASSWORD\n" RESET);
-            play_errorBuzz();
+            show_error("WRONG PASSWORD\n");
         }
     }
     else if (selected_value == 2)
     {
         get_pass(pass);
-        if (1 == verify_admin_pass (pass))
+        if (1 == verify_admin_pass(pass))
         {
-        set_credential(ADMIN);
-        current_state = ADMIN_SELECTION;
+            set_credential(ADMIN);
+            current_state = ADMIN_SELECTION;
         }
-        else 
+        else
         {
-            printf(RED "WRONG PASSWORD\n" RESET);
-            play_errorBuzz();
+            show_error("WRONG PASSWORD\n");
         }
-
     }
     else
     {
@@ -247,7 +243,7 @@ void manage_change_price()
 
 void get_pass(char *pass)
 {
-    printf(YEL"Enter password : "RESET);
+    printf(YEL "Enter password : " RESET);
     scanf("%s", pass);
     pass[5] = '\0';
 }
