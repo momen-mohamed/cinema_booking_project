@@ -11,6 +11,8 @@ void manage_ticket_cancel();
 void manage_admin_selection();
 void manage_change_price();
 void get_pass(char *pass);
+void manage_cancelBySeat(int selected_movie);
+void manage_cancelByPhoneNumber(int selected_movie);
 
 
 #endif

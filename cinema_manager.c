@@ -168,15 +168,30 @@ void manage_showing_ticket()
 {
     int movie_number;
     PRINT_MOVIES;
-    printf("please enter number of movie:");
+    printf("please enter movie number:");
     scanf("%d", &movie_number);
-    view_reservedTicket(movie_number - 1);
-    current_state = USER_SELECTION;
+    if (movie_number > 0 && movie_number < 4)
+    {
+        clrscr();
+        view_reservedTicket(movie_number - 1);
+        current_state = SHOW_RESERVED_TICKET;
+    }
+    else if (movie_number == 4)
+    {
+        current_state = USER_SELECTION;
+        clrscr();
+    }
+    else
+    {
+        current_state = SHOW_RESERVED_TICKET;
+        show_error("WRONG ENTERY\n");
+        clrscr();
+    }
 }
 
 void manage_ticket_cancel()
 {
-    int selected_movie, selection, selected_seat;
+    int selected_movie, selection;
 
     PRINT_MOVIES;
     printf("please enter your selection:");
@@ -280,7 +295,6 @@ void manage_cancelByPhoneNumber(int selected_movie)
 
     ERROR_type status;
     char phone_number[12];
-    int selected_seat;
     printf("please enter your phoneNumber: ");
     fflush(stdin);
     scanf("%s", phone_number);
