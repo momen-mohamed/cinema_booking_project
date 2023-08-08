@@ -135,7 +135,7 @@ void manage_ticket_reserve()
         scanf("%d", &seat_number);
         printf("please enter your phone number: ");
         fflush(stdin);
-        scanf("%s",phone_number);
+        scanf("%s", phone_number);
         if (seat_number > 0 && seat_number <= 100)
         {
             status = reserve_seat(selection, seat_number, phone_number);
@@ -176,8 +176,7 @@ void manage_showing_ticket()
 
 void manage_ticket_cancel()
 {
-    int selection, selected_seat;
-    ERROR_type status;
+    int selected_movie, selection, selected_seat;
 
     PRINT_MOVIES;
     printf("please enter your selection:");
@@ -188,16 +187,25 @@ void manage_ticket_cancel()
     }
     else if (selection > 0 && selection < 4)
     {
-        printf("please enter seat number:");
-        scanf("%d", &selected_seat);
-        status = cancel_seat(selection, selected_seat);
-        if (status == NOT_OK)
+        clrscr();
+        selected_movie = selection;
+        PRINT_CANCEL_OPTIONS;
+        printf("please enter your selection:");
+        scanf("%d", &selection);
+        switch (selection)
         {
-            show_error("SEAT IS ALREADY NOT RESERVED\n");
-        }
-        else
-        {
-            play_delete();
+        case 1:
+            manage_cancelBySeat(selected_movie);
+            break;
+        case 2:
+            manage_cancelByPhoneNumber(selected_movie);
+            break;
+        case 3:
+            current_state = CANCEL_TICKET;
+            break;
+        default:
+            show_error("WRONG ENTERY\n");
+            break;
         }
     }
     else
@@ -247,4 +255,46 @@ void get_pass(char *pass)
     printf(YEL "Enter password : " RESET);
     scanf("%s", pass);
     pass[5] = '\0';
+}
+
+void manage_cancelBySeat(int selected_movie)
+{
+    ERROR_type status;
+
+    int selected_seat;
+    printf("please enter seat number:");
+    scanf("%d", &selected_seat);
+    status = cancel_seat(selected_movie, selected_seat);
+    if (status == NOT_OK)
+    {
+        show_error("SEAT IS ALREADY NOT RESERVED\n");
+    }
+    else
+    {
+        play_delete();
+    }
+}
+
+void manage_cancelByPhoneNumber(int selected_movie)
+{
+
+    ERROR_type status;
+    char phone_number[12];
+    int selected_seat;
+    printf("please enter your phoneNumber: ");
+    fflush(stdin);
+    scanf("%s", phone_number);
+    status = canceling_by_phone(selected_movie, phone_number);
+    if (status == NOT_OK)
+    {
+        show_error("SEAT IS ALREADY NOT RESERVED\n");
+    }
+    else if (status == NOT_FOUND)
+    {
+        show_error("NO SEAT RESERVED USING THIS PHONENUMBER\n");
+    }
+    else
+    {
+        play_delete();
+    }
 }

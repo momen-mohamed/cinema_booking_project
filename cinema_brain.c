@@ -116,25 +116,27 @@ ERROR_type reserve_seat(int movie_index, int seat_number, char *phone_number)
 }
 
 // canceling by phone
-ERROR_type canceling_by_phone (int movie_index , char *phone_number){
-	ERROR_type status = OK;
-	for (int i = 0 ; i < NO_OF_SEATS ; i++){
+ERROR_type canceling_by_phone(int movie_index, char *phone_number)
+{
+    ERROR_type status = NOT_FOUND;
+    for (int i = 0; i < NO_OF_SEATS; i++)
+    {
 
-		if(strcmp(cinema[movie_index-1][i].phone_number,phone_number) == 0){
-			if(cinema[movie_index-1][i].isReserved == 1){
-				cinema[movie_index-1][i].isReserved = 0;
-			}
-			else {
-				status = NOT_OK;
-			}
-		}
-		else {
-			status = NOT_OK;
-
-		}
-
-	}
-	return status ;
+        if (strcmp(cinema[movie_index - 1][i].phone_number, phone_number) == 0)
+        {
+            status = OK;
+            if (cinema[movie_index - 1][i].isReserved == 1)
+            {
+                cinema[movie_index - 1][i].isReserved = 0;
+                strcpy(cinema[movie_index - 1][i].phone_number, "");
+            }
+            else
+            {
+                status = NOT_OK;
+            }
+        }
+    }
+    return status;
 }
 
 ERROR_type cancel_seat(int movie_index, int seat_number)
@@ -148,6 +150,7 @@ ERROR_type cancel_seat(int movie_index, int seat_number)
     else
     {
         cinema[movie_index - 1][seat_number - 1].isReserved = 0;
+        strcpy(cinema[movie_index - 1][seat_number - 1].phone_number, "");
     }
     return status;
 }

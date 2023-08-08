@@ -28,6 +28,11 @@
   printf(GRN "3- MISSION IMPOSSIBLE\n" RESET); \
   printf(GRN "4- RETUEN TO USER MENU\n" RESET);
 
+#define PRINT_CANCEL_OPTIONS                    \
+  printf(YEL "Commands\n" RESET);               \
+  printf(GRN "1- CANCEL BY SEAT NUMBER\n" RESET); \
+  printf(GRN "2- CANCEL BY PHONENUMBER\n" RESET);        \
+  printf(GRN "3- RETUEN TO USER MENU\n" RESET);
 
 void play_intro();
 void play_win();
@@ -38,6 +43,6 @@ void play_gameOver();
 void play_errorBuzz();
 void clrscr();
 void print_cinema_entery();
-void show_error(char* errorMessage);
+void show_error(char *errorMessage);
 
 #endif

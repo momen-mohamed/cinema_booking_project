@@ -33,6 +33,7 @@ typedef enum{
 typedef enum{
     OK,
     NOT_OK,
+    NOT_FOUND
 }ERROR_type;
 
 void view_reservedTicket(int movie_index);
