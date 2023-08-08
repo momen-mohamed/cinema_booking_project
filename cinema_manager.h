@@ -10,6 +10,7 @@ void manage_showing_ticket();
 void manage_ticket_cancel();
 void manage_admin_selection();
 void manage_change_price();
+void get_pass(char *pass);
 
 
 #endif

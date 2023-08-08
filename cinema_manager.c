@@ -77,7 +77,7 @@ void select_user()
         if (1 == verify_admin_pass (pass))
         {
         set_credential(ADMIN);
-        current_state = USER_SELECTION;
+        current_state = ADMIN_SELECTION;
         }
         else 
         {
@@ -243,4 +243,11 @@ void manage_change_price()
     change_price(new_price);
     current_state = ADMIN_SELECTION;
     clrscr();
+}
+
+void get_pass(char *pass)
+{
+    printf(YEL"Enter password : "RESET);
+    scanf("%s", pass);
+    pass[5] = '\0';
 }

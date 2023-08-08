@@ -70,14 +70,7 @@ void set_credential(USER_type type_of_user)
 {
     user = type_of_user;
 }
-void get_pass(char *pass)
-{
-    printf("\x1B[33m"
-           "\x1B[1m"
-           "\nEnter password : ");
-    scanf("%s", pass);
-    pass[5] = '\0';
-}
+
 char verify_user_pass(char pass[])
 {
     if (0 == strcmp(pass, "user"))
