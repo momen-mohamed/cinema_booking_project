@@ -135,7 +135,7 @@ void manage_ticket_reserve()
         scanf("%d", &seat_number);
         printf("please enter your phone number: ");
         fflush(stdin);
-        gets(phone_number);
+        scanf("%s",phone_number);
         if (seat_number > 0 && seat_number <= 100)
         {
             status = reserve_seat(selection, seat_number, phone_number);
