@@ -185,7 +185,7 @@ void manage_ticket_cancel()
     {
         current_state = USER_SELECTION;
     }
-    else if (selection > 0 && selection < 3)
+    else if (selection > 0 && selection < 4)
     {
         printf("please enter seat number:");
         scanf("%d", &selected_seat);
@@ -201,7 +201,7 @@ void manage_ticket_cancel()
     }
     else
     {
-        show_error("WRONG ENTERY");
+        show_error("WRONG ENTERY\n");
     }
     clrscr();
 }
