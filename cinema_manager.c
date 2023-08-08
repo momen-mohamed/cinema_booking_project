@@ -167,6 +167,7 @@ void manage_ticket_reserve()
 void manage_showing_ticket()
 {
     int movie_number;
+    PRINT_MOVIES;
     printf("please enter number of movie:");
     scanf("%d", &movie_number);
     view_reservedTicket(movie_number - 1);
