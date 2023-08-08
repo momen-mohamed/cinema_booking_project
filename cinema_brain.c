@@ -122,26 +122,9 @@ ERROR_type reserve_seat(int movie_index, int seat_number, char *phone_number)
     return status;
 }
 
-// canceling by phone
-ERROR_type canceling_by_phone (int movie_index , char *phone_number){
-	ERROR_type status = OK;
-	for (int i = 0 ; i < NO_OF_SEATS ; i++){
-
-		if(strcmp(cinema[movie_index-1][i].phone_number,phone_number) == 0){
-			if(cinema[movie_index-1][i].isReserved == 1){
-				cinema[movie_index-1][i].isReserved = 0;
-			}
-			else {
-				status = NOT_OK;
-			}
-		}
-		else {
-			status = NOT_OK;
-
-		}
-
-	}
-	return status ;
+// need to be implemented
+void cancel_byphoneNumber()
+{
 }
 
 ERROR_type cancel_seat(int movie_index, int seat_number)
