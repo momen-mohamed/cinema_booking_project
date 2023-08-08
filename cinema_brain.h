@@ -45,5 +45,7 @@ USER_type get_user_type();
 int seats(int index);
 ERROR_type reserve_seat(int movie_index, int seat_number,char* phone_number);
 ERROR_type cancel_seat(int movie_index,int seat_number);
+ERROR_type canceling_by_phone (int movie_index , char *phone_number);
+
 
 #endif
