@@ -4,11 +4,13 @@
 
 #define NO_OF_SEATS 100
 #define NO_OF_MOVIES 3
+#include "MyP_Types.h"
+
 
 typedef struct {
-    char phone_number[12];
-    int isReserved;
-    int price;
+    Int8_t  phone_number[12];
+    Int32_t isReserved;
+    Int32_t price;
 }Seat_t;
 
 
@@ -36,15 +38,15 @@ typedef enum{
     NOT_FOUND
 }ERROR_type;
 
-void view_reservedTicket(int movie_index);
-void change_price(int new_price);
+void view_reservedTicket(Int32_t movie_index);
+void change_price(Int32_t new_price);
 void set_credential(USER_type type_of_user);
-void get_pass (char *pass);
+void get_pass (Int8_t  *pass);
 USER_type get_user_type();
-int seats(int index);
-ERROR_type reserve_seat(int movie_index, int seat_number,char* phone_number);
-ERROR_type cancel_seat(int movie_index,int seat_number);
-ERROR_type canceling_by_phone (int movie_index , char *phone_number);
+Int32_t seats(Int32_t index);
+ERROR_type reserve_seat(Int32_t movie_index, Int32_t seat_number,char* phone_number);
+ERROR_type cancel_seat(Int32_t movie_index,Int32_t seat_number);
+ERROR_type canceling_by_phone (Int32_t movie_index , Int8_t  *phone_number);
 
 
 #endif
