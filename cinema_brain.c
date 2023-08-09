@@ -3,19 +3,20 @@
 #include "terminal_color.h"
 #include "cinema_brain.h"
 #include <string.h>
+#include "MyP_Types.h"
 
 
-static int price = 100;
+static Int32_t price = 100;
 static Seat_t cinema[NO_OF_MOVIES][NO_OF_SEATS];
 static USER_type user;
 
-void view_reservedTicket(int movie_index)
+void view_reservedTicket(Int32_t movie_index)
 {
 
     // printing reserved seats
 
     printf(YEL"%37s","SCREEN\n"RESET);
-    for (int i = 0; i < NO_OF_SEATS; i++)
+    for (Int32_t i = 0; i < NO_OF_SEATS; i++)
     {
 
         if (cinema[movie_index][i].isReserved)
@@ -34,7 +35,7 @@ void view_reservedTicket(int movie_index)
 
     // printing tickets
     printf("----------------------------------------------------------\n");
-    for (int i = 0; i < NO_OF_SEATS; i++)
+    for (Int32_t i = 0; i < NO_OF_SEATS; i++)
     {
 
         Seat_t current_seat = cinema[movie_index][i];
@@ -63,7 +64,7 @@ void view_reservedTicket(int movie_index)
     }
 }
 
-void change_price(int new_price)
+void change_price(Int32_t new_price)
 {
     price = new_price;
 }
@@ -78,7 +79,7 @@ USER_type get_user_type()
     return user;
 }
 
-ERROR_type reserve_seat(int movie_index, int seat_number, char *phone_number)
+ERROR_type reserve_seat(Int32_t movie_index, Int32_t seat_number, char *phone_number)
 {
     ERROR_type status = OK;
     if (cinema[movie_index - 1][seat_number - 1].isReserved)
@@ -96,10 +97,10 @@ ERROR_type reserve_seat(int movie_index, int seat_number, char *phone_number)
 }
 
 // canceling by phone
-ERROR_type canceling_by_phone(int movie_index, char *phone_number)
+ERROR_type canceling_by_phone(Int32_t movie_index, char *phone_number)
 {
     ERROR_type status = NOT_FOUND;
-    for (int i = 0; i < NO_OF_SEATS; i++)
+    for (Int32_t i = 0; i < NO_OF_SEATS; i++)
     {
 
         if (strcmp(cinema[movie_index - 1][i].phone_number, phone_number) == 0)
@@ -119,7 +120,7 @@ ERROR_type canceling_by_phone(int movie_index, char *phone_number)
     return status;
 }
 
-ERROR_type cancel_seat(int movie_index, int seat_number)
+ERROR_type cancel_seat(Int32_t movie_index, Int32_t seat_number)
 {
     ERROR_type status = OK;
 
