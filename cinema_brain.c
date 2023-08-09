@@ -1,8 +1,9 @@
 #include <stdio.h>
-#include <string.h>
 #include "terminal_manager.h"
 #include "terminal_color.h"
 #include "cinema_brain.h"
+#include <string.h>
+
 
 static int price = 100;
 static Seat_t cinema[NO_OF_MOVIES][NO_OF_SEATS];
@@ -71,28 +72,6 @@ void set_credential(USER_type type_of_user)
     user = type_of_user;
 }
 
-char verify_user_pass(char pass[])
-{
-    if (0 == strcmp(pass, "user"))
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
-}
-char verify_admin_pass(char pass[])
-{
-    if (0 == strcmp(pass, "admin"))
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
-}
 USER_type get_user_type()
 {
     return user;

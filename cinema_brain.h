@@ -40,8 +40,6 @@ void view_reservedTicket(int movie_index);
 void change_price(int new_price);
 void set_credential(USER_type type_of_user);
 void get_pass (char *pass);
-char verify_user_pass (char pass[]);
-char verify_admin_pass (char pass[]);
 USER_type get_user_type();
 int seats(int index);
 ERROR_type reserve_seat(int movie_index, int seat_number,char* phone_number);
