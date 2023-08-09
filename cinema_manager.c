@@ -4,6 +4,8 @@
 #include "cinema_brain.h"
 #include "cinema_manager.h"
 #include "verification.h"
+#include "MyP_Types.h"
+
 
 static STATE current_state = INITIAL;
 
@@ -50,8 +52,8 @@ void start_app()
 
 void select_user()
 {
-    int selected_value;
-    char pass[6] = {0};
+    Int32_t selected_value;
+    Int8_t pass[6] = {0};
     PRINT_MAIN_MENU;
     printf(BLU "TO MANAGE SYSTEM AS USER PRESS 1 AS ADMIN PRESS 2: " RESET);
 
@@ -94,7 +96,7 @@ void select_user()
 void manage_user_selection()
 {
     PRINT_USER_INSTRUCTIONS;
-    int selection;
+    Int32_t selection;
     printf("please enter your selection: ");
     scanf("%d", &selection);
     switch (selection)
@@ -123,9 +125,9 @@ void manage_ticket_reserve()
 {
 
     PRINT_MOVIES;
-    char phone_number[12];
-    int selection;
-    int seat_number;
+    Int8_t phone_number[12];
+    Int32_t selection;
+    Int32_t seat_number;
     ERROR_type status;
 
     printf("please enter your selection: ");
@@ -174,7 +176,7 @@ void manage_ticket_reserve()
 
 void manage_showing_ticket()
 {
-    int movie_number;
+    Int32_t movie_number;
     PRINT_MOVIES;
     printf("please enter movie number: ");
     scanf("%d", &movie_number);
@@ -199,7 +201,7 @@ void manage_showing_ticket()
 
 void manage_ticket_cancel()
 {
-    int selected_movie, selection;
+    Int32_t selected_movie, selection;
 
     PRINT_MOVIES;
     printf("please enter your selection: ");
@@ -241,7 +243,7 @@ void manage_ticket_cancel()
 void manage_admin_selection()
 {
     PRINT_ADMIN_INSTRUCTIONS;
-    int selection;
+    Int32_t selection;
     printf("please enter your selection: ");
     scanf("%d", &selection);
     switch (selection)
@@ -265,7 +267,7 @@ void manage_admin_selection()
 
 void manage_change_price()
 {
-    int new_price;
+    Int32_t new_price;
     printf("please enter the new price: ");
     scanf("%d", &new_price);
     change_price(new_price);
@@ -273,18 +275,18 @@ void manage_change_price()
     clrscr();
 }
 
-void get_pass(char *pass)
+void get_pass(Int8_t *pass)
 {
     printf(YEL "Enter password: " RESET);
     scanf("%s", pass);
     pass[5] = '\0';
 }
 
-void manage_cancelBySeat(int selected_movie)
+void manage_cancelBySeat(Int32_t selected_movie)
 {
     ERROR_type status;
 
-    int selected_seat;
+    Int32_t selected_seat;
     printf("please enter seat number: ");
     scanf("%d", &selected_seat);
     status = cancel_seat(selected_movie, selected_seat);
@@ -298,11 +300,11 @@ void manage_cancelBySeat(int selected_movie)
     }
 }
 
-void manage_cancelByPhoneNumber(int selected_movie)
+void manage_cancelByPhoneNumber(Int32_t selected_movie)
 {
 
     ERROR_type status;
-    char phone_number[12];
+    Int8_t phone_number[12];
     printf("please enter your phoneNumber: ");
     fflush(stdin);
     scanf("%s", phone_number);
