@@ -14,6 +14,7 @@ void view_reservedTicket(int movie_index)
 
     // printing reserved seats
 
+    printf(YEL"%37s","SCREEN\n"RESET);
     for (int i = 0; i < NO_OF_SEATS; i++)
     {
 
@@ -32,32 +33,32 @@ void view_reservedTicket(int movie_index)
     }
 
     // printing tickets
-    printf("-----------------------------------------------\n");
+    printf("----------------------------------------------------------\n");
     for (int i = 0; i < NO_OF_SEATS; i++)
     {
 
         Seat_t current_seat = cinema[movie_index][i];
         if (current_seat.isReserved)
         {
-            printf("-----------------------------------------------\n");
+            printf(BLU"-------------------------------------------------\n"RESET);
 
             switch (movie_index)
             {
             case 0:
-                printf(CYN "OPPENHIEMER\n" RESET);
+                printf(CYN "|%-47s|\n"RESET,"OPPENHIEMER");
                 break;
             case 1:
-                printf(CYN "BARBIE\n" RESET);
+                printf(CYN "|%-47s|\n"RESET,"BARBIE");
                 break;
             case 2:
-                printf(CYN "MISSION IMPOSSIBLE\n" RESET);
+                printf(CYN "|%-47s|\n"RESET,"MISSION IMPOSSIBLE");
                 break;
             default:
                 break;
             }
-            printf(BLU "price:%d    seatNo:%d   phoneNumber:%s\n" RESET, current_seat.price, i + 1, current_seat.phone_number);
+            printf(BLU "|price:%d    seatNo:%d   phoneNumber:%s|\n" RESET, current_seat.price, i + 1, current_seat.phone_number);
 
-            printf("-----------------------------------------------\n");
+            printf(BLU"-------------------------------------------------\n"RESET);
         }
     }
 }
