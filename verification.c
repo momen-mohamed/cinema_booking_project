@@ -1,8 +1,10 @@
 #include "cinema_brain.h"
 #include <string.h>
+#include "MyP_Types.h"
 
 
-char verify_user_pass(char pass[])
+
+Int8_t verify_user_pass(Int8_t pass[])
 {
     if (0 == strcmp(pass, "user"))
     {
@@ -13,7 +15,7 @@ char verify_user_pass(char pass[])
         return 0;
     }
 }
-char verify_admin_pass(char pass[])
+Int8_t verify_admin_pass(Int8_t pass[])
 {
     if (0 == strcmp(pass, "admin"))
     {
@@ -25,7 +27,7 @@ char verify_admin_pass(char pass[])
     }
 }
 
-ERROR_type phone_check(char number[])
+ERROR_type phone_check(Int8_t number[])
 {
     ERROR_type status = OK, i;
     for (i = 0; number[i] != '\0'; i++)
