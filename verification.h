@@ -1,11 +1,12 @@
 #include "cinema_brain.h"
+#include "MyP_Types.h"
 
 
 #ifndef VERIFICATION_H_
 #define VERIFICATION_H_
 
-char verify_user_pass (char pass[]);
-char verify_admin_pass (char pass[]);
-ERROR_type phone_check(char number[]);
+Int8_t verify_user_pass (Int8_t pass[]);
+Int8_t verify_admin_pass (Int8_t pass[]);
+ERROR_type phone_check(Int8_t number[]);
 
 #endif

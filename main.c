@@ -1,6 +1,7 @@
 #include "cinema_manager.h"
+#include "MyP_Types.h"
 
-int main(void)
+Int32_t main(void)
 {
     start_app();
 }
