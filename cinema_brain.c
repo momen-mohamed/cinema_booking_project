@@ -1,3 +1,13 @@
+ /******************************************************************************
+ 
+ * File Name: Cinema_brain.c
+ *
+ * Description: the main functionality of the system
+ *
+ * Author: Trojan and Mechanicus
+ *
+ *******************************************************************************/
+
 #include <stdio.h>
 #include "terminal_manager.h"
 #include "terminal_color.h"
@@ -9,6 +19,13 @@
 static Int32_t price = 100;
 static Seat_t cinema[NO_OF_MOVIES][NO_OF_SEATS];
 static USER_type user;
+
+
+/*
+ * Description :
+ * the fuction is responsible for displaying the reserved Tickets
+ */
+
 
 void view_reservedTicket(Int32_t movie_index)
 {
@@ -64,6 +81,12 @@ void view_reservedTicket(Int32_t movie_index)
     }
 }
 
+
+/*
+ * Description :
+ * the fuction is responsible for Changing the tickets price
+ */
+
 void change_price(Int32_t new_price)
 {
     price = new_price;
@@ -78,6 +101,11 @@ USER_type get_user_type()
 {
     return user;
 }
+
+/*
+ * Description :
+ * the fuction is responsible for Checking if the seat is reserved or not
+ */
 
 ERROR_type reserve_seat(Int32_t movie_index, Int32_t seat_number, char *phone_number)
 {
@@ -96,7 +124,11 @@ ERROR_type reserve_seat(Int32_t movie_index, Int32_t seat_number, char *phone_nu
     return status;
 }
 
-// canceling by phone
+/*
+ * Description :
+ * the fuction is responsible for cancel seat booking by phone number
+ */
+
 ERROR_type canceling_by_phone(Int32_t movie_index, char *phone_number)
 {
     ERROR_type status = NOT_FOUND;
@@ -119,6 +151,11 @@ ERROR_type canceling_by_phone(Int32_t movie_index, char *phone_number)
     }
     return status;
 }
+
+/*
+ * Description :
+ * the fuction is responsible for cancel seat booking
+ */
 
 ERROR_type cancel_seat(Int32_t movie_index, Int32_t seat_number)
 {

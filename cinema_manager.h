@@ -1,7 +1,23 @@
 
+ /******************************************************************************
+ *
+ * File Name: Cinema_manager.h
+ *
+ * Description: the flow control of the the whole system
+ *
+ * Author: Trojan and Mechanicus
+ *
+ *******************************************************************************/
+
+#include "MyP_Types.h"
+
+
 #ifndef CINMEA_MANAGER_H_
 #define CINMEA_MANAGER_H_
-#include "MyP_Types.h"
+
+/*******************************************************************************
+ *                              Functions Prototypes                           *
+ *******************************************************************************/
 
 void start_app();
 void select_user();

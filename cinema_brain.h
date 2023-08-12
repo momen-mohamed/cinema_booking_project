@@ -1,11 +1,28 @@
+ /******************************************************************************
+ 
+ * File Name: Cinema_brain.h
+ *
+ * Description: the main functionality of the system
+ *
+ * Author: Trojan and Mechanicus
+ *
+ *******************************************************************************/
+
+#include "MyP_Types.h"
 
 #ifndef CINMEA_BRAIN_H_
 #define CINMEA_BRAIN_H_
 
+/*******************************************************************************
+ *                                Definitions                                  *
+ *******************************************************************************/
 #define NO_OF_SEATS 100
 #define NO_OF_MOVIES 3
-#include "MyP_Types.h"
 
+
+/*******************************************************************************
+ *                               Types Declaration                             *
+ *******************************************************************************/
 
 typedef struct {
     Int8_t  phone_number[12];
@@ -38,6 +55,10 @@ typedef enum{
     NOT_FOUND
 }ERROR_type;
 
+
+/*******************************************************************************
+ *                              Functions Prototypes                           *
+ *******************************************************************************/
 void view_reservedTicket(Int32_t movie_index);
 void change_price(Int32_t new_price);
 void set_credential(USER_type type_of_user);
